@@ -9,7 +9,7 @@ import edu.holycross.shot.ohco2._
 import edu.holycross.shot.seqcomp._
 import edu.furman.classics.citealign._
 
-val demoLib:String = "cex/john_demo.cex"
+val demoLib:String = "wizardofoz.cex"
 
 def loadLibrary(fp:String = demoLib):CiteLibrary = {
 	val library = CiteLibrary(Source.fromFile(fp).getLines.mkString("\n"),"#",",")
@@ -58,7 +58,7 @@ def printCorpus(c:Corpus):Unit = {
 		//val thisCitation:String = n.urn.passageComponent.toString
 		val thisText:String = n.text
 		println(s"${thisCitation} :: ${thisText}")
-	}	
+	}
 	println("------")
 }
 
