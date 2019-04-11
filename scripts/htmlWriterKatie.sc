@@ -44,6 +44,11 @@ def u(passage:String):CtsUrn = {
 	CtsUrn(s"${baseUrl}${passage}")
 }
 
+// Getting labels for a URN
+//     note that these depend on the stuff defined above
+val groupName:String = tr.catalog.groupName(u(""))
+val workTitle:String = tr.catalog.workTitle(u(""))
+val versionLabel:String = tr.catalog.versionLabel(u(""))
 
 
 def printCorpus(c:Corpus):Unit = {
@@ -63,7 +68,27 @@ def printCorpus(c:Corpus):Unit = {
 // one for each chapter
 
 /* def chunkByChapter(c:Corpus):Vector[Corpus] = {} */
-
+// Chunk-by-citation
+def chunkByChapter(c:Corpus, level:Int = 1):Vector[Corpus] = {
+	// we start with a Vector of CitableNodes from our corpus
+	val v1:Vector[CitableNode] = c.nodes
+	// We zipWithIndex to capture their sequence
+	val v2:Vector[(CitableNode, Int)] = v1.zipWithIndex
+	// We group by top-level URNs
+	val v3:Vector[(CtsUrn, Vector[(CitableNode, Int)])] = {
+		v2.groupBy( _._1.urn.collapsePassageTo(level) ).toVector
+	}
+	// GroupBy destroys order, but we have the original index for re-sorting
+	val v4:Vector[(CtsUrn, Vector[(CitableNode, Int)])] = v3.sortBy(_._2.head._2)
+	// Get rid of the stuff we don't need
+	val v5:Vector[Vector[(CitableNode, Int)]] = v4.map(_._2)
+	// Map to a Vector of Corpora
+	val corpusVec:Vector[Corpus] = v5.map( v => {
+		val nodes:Vector[CitableNode] = v.map(_._1)
+		Corpus(nodes)
+	})
+	corpusVec
+}
 
 
 // Content to stick at the top of every page
@@ -92,20 +117,45 @@ for ( chapt <- chapterChunks.zipWithIndex) {
 	// create a filename
 	val htmlName:String = s"chapter${chaptNum}.html"
 
+	/* Navigation */
+	val prevLink:String = {
+		chaptNum match {
+			case n if (n == 1) => { "" }
+			case _ => { s"""<a href="chapter${chaptNum - 1}.html">previous</a>""" }
+		}
+	}
+	val nextLink:String = {
+		chaptNum match {
+			case n if (n == (chapterChunks.size)) => { "" }
+			case _ => { s"""<a href="chapter${chaptNum + 1}.html">next</a>""" }
+		}
+	}
+	val nav:String = s"""<div class="nav">${prevLink} | ${nextLink}</div>"""
+	/* End Navigation */
+
+	/* Chapter Heading */
+	val bookHeader:String = s"""
+		<div class="bookHeader block color${((chaptNum-1) % 20) + 1}">
+			<p class="textOnColor">Chapter ${chaptNum}</p>
+		</div>
+	"""
 
 	// create a container with all the CitableNodes for this chunk
 	val containerOpen:String = """<div class="text">"""
 	val containerClose:String = """</div>"""
 
 	val passages:Vector[String] = c.nodes.map( n => {
-		s"""<p class="poetryLine"><span class="cite">${n.urn}</span>${n.text}</p>"""
+		s"""<p class="bookParagraph"><span class="cite">${n.urn.passageComponent}</span>${n.text}</p>"""
 	})
 
 	// save this chunk as an html file
 	val htmlString:String = {
 		htmlTop +
+		bookHeader +
 		containerOpen +
+		nav +
 		passages.mkString("\n") +
+		nav +
 		containerClose +
 		htmlBottom
 	}
