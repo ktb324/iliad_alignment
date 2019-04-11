@@ -97,7 +97,7 @@ var htmlTop:String = s"""<!DOCTYPE html>
 <head>
 	<title>${groupName}: ${workTitle}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style-mine.css">
 </head>
 
 <body>"""
