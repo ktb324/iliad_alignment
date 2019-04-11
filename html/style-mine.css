@@ -1,0 +1,35 @@
+html {
+//where is the rest of my text??
+
+padding-left: 10em;
+padding-right: 10em;
+
+}
+
+body{
+	color: #29ad44;
+	background-color: #f9f772;
+}
+
+//fonts not working
+//create different fonts for header and passage
+
+p {
+	font-family: "Philosopher", sans-serif;
+	border: none;
+
+}
+
+//pages
+
+span.cite{
+	color: #29ad44;
+	margin-right: 1em;
+}
+
+
+h1 {
+	font-family: "Philosopher", sans-serif;
+	text-align: center;
+	color: #29ad44;
+}
