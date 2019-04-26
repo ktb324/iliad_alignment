@@ -6,6 +6,16 @@ padding-right: 10em;
 
 }
 
+@font-face {
+    font-family: 'ozs_wizardtin_woodman';
+    src: url('ozswizard-tinwoodman-webfont.woff2') format('woff2'),
+         url('ozswizard-tinwoodman-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 body{
 	color: #29ad44;
 	background-color: #f9f772;
@@ -15,7 +25,7 @@ body{
 //create different fonts for header and passage
 
 p {
-	font-family: "OzsWizard-TinWoodman.ttf", sans-serif;
+	/* font-family: "OzsWizard-TinWoodman.ttf", sans-serif; */
 	border: none;
 
 }
@@ -29,7 +39,9 @@ span.cite{
 
 
 h1 {
-	font-family: "OzsWizard-TinWoodman.ttf", sans-serif;
+/*	font-family: "OzsWizard-TinWoodman", sans-serif; */
+	font-family: 'ozs_wizardtin_woodman';
+
 	text-align: center;
 	color: #29ad44;
 }
