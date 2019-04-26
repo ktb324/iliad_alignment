@@ -15,7 +15,7 @@ body{
 //create different fonts for header and passage
 
 p {
-	font-family: "Philosopher", sans-serif;
+	font-family: "OzsWizard-TinWoodman.ttf", sans-serif;
 	border: none;
 
 }
@@ -29,7 +29,7 @@ span.cite{
 
 
 h1 {
-	font-family: "Philosopher", sans-serif;
+	font-family: "OzsWizard-TinWoodman.ttf", sans-serif;
 	text-align: center;
 	color: #29ad44;
 }
