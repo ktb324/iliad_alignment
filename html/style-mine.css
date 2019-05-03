@@ -29,6 +29,14 @@ p {
 
 }
 
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	background-color: green;
+}
+
 //pages
 
 span.cite{
