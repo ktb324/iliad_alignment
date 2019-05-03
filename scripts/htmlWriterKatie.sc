@@ -136,7 +136,7 @@ for ( chapt <- chapterChunks.zipWithIndex) {
 	/* Chapter Heading */
 	val bookHeader:String = s"""
 		<div class="bookHeader block color${((chaptNum-1) % 20) + 1}">
-			<p class="textOnColor">Chapter ${chaptNum}</p>
+			<h1 class="textOnColor">Chapter ${chaptNum}</h1>
 		</div>
 	"""
 

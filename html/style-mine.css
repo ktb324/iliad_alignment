@@ -1,5 +1,4 @@
 html {
-//where is the rest of my text??
 
 padding-left: 10em;
 padding-right: 10em;
@@ -44,4 +43,12 @@ h1 {
 
 	text-align: center;
 	color: #29ad44;
+}
+
+h2 {
+  font-family: 'ozs_wizardtin_woodman';
+
+	text-align: center;
+	color: #29ad44;
+  font-size: 120
 }
