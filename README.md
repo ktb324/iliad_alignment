@@ -28,8 +28,4 @@ Perhaps one of the most interesting features of my repository is contained withi
 
 This analysis is interesteing in any setting because it is neat to understsnd what goes into determining the reading level of a novel, as well as understanding how that score is reached.  This methid could face limitations in the fact that the counting of syllables may not always be entirely accurate.
 
-While this could pose a problem for texts that have particularly lengthy words or oddly spelled words, *The Wizard of Oz* is pretty cut and dry.  I was fairly confident with the results of the analysis showing that this novel spanned reading levels from 4th to 8th grade and I was happy to discover [here](https://www.dogobooks.com/the-wizard-of-oz/book-review/0030616611)
-
-http://github.com - automatic!
-[GitHub](http://github.com)
-
+While this could pose a problem for texts that have particularly lengthy words or oddly spelled words, *The Wizard of Oz* is pretty cut and dry.  I was fairly confident with the results of the analysis showing that this novel spanned reading levels from 4th to 8th grade and I was happy to discover [here](https://www.dogobooks.com/the-wizard-of-oz/book-review/0030616611) that my analysis proved fairly accurate because I have confirmation that *The Wizard of Oz* is around a 7th grade reading level.
